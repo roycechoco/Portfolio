@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Royston Cheng | Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Custom Variables & Dark Space Background */
+        body {
+            background-color: #0b0d14;
+            background-image: 
+                radial-gradient(circle at 15% 50%, rgba(76, 29, 149, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 85% 30%, rgba(29, 78, 216, 0.15) 0%, transparent 50%);
+            color: #e2e8f0;
+            font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+        }
+
+        /* Glassmorphism Utilities */
+        .glass-card {
+            background: rgba(30, 41, 59, 0.4);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 1rem;
+            transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .glass-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(168, 85, 247, 0.4);
+            box-shadow: 0 10px 30px -10px rgba(168, 85, 247, 0.2);
+        }
+
+        /* Glowing Profile Picture (Now for 4:5 Rectangle) */
+        .glow-profile {
+            box-shadow: 0 0 30px rgba(168, 85, 247, 0.6), inset 0 0 20px rgba(168, 85, 247, 0.4);
+            border: 4px solid #a855f7;
+        }
+
+        /* Infinite Scrolling Marquee */
+        .marquee-wrapper {
+            overflow: hidden;
+            white-space: nowrap;
+            position: relative;
+            display: flex;
+            width: 100%;
+            mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+            -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+        }
+
+        .marquee-content {
+            display: flex;
+            animation: marquee 25s linear infinite;
+        }
+
+        .marquee-content:hover {
+            animation-play-state: paused;
+        }
+
+        @keyframes marquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        .skill-pill {
+            background: rgba(30, 41, 59, 0.6);
+            border: 1px solid rgba(168, 85, 247, 0.3);
+            color: #d8b4fe;
+        }
+    </style>
+</head>
+<body class="antialiased min-h-screen flex flex-col">
+
+    <nav class="w-full max-w-6xl mx-auto px-6 py-8 flex flex-col lg:flex-row justify-between items-center z-10 relative">
+        <div class="text-xl font-bold tracking-wider mb-4 lg:mb-0">
+            Royston<span class="text-purple-500">Cheng</span>
+        </div>
+        
+        <div class="flex flex-wrap justify-center items-center gap-x-6 gap-y-2 text-sm text-gray-400">
+            <a href="#about" class="hover:text-white transition">About me</a>
+            <a href="#education" class="hover:text-white transition">Education</a>
+            <a href="#skills" class="hover:text-white transition">Skills</a>
+            <a href="#experience" class="hover:text-white transition">Experience</a>
+            <a href="#projects" class="hover:text-white transition">Projects</a>
+            
+                   </div>
+    </nav>
+
+    <main class="flex-grow w-full max-w-6xl mx-auto px-6 pt-12 pb-24 flex flex-col md:flex-row items-center justify-center gap-16 z-10 relative">
+        <div class="relative">
+            <div class="w-56 h-72 md:w-64 md:h-80 rounded-2xl glow-profile bg-gray-800 flex flex-col items-center justify-center overflow-hidden relative">
+                <img src="Profile.JPG" alt="Royston and Noot Noot" class="w-full h-full object-cover">
+                </div>
+<div class="absolute -bottom-4 -left-10 md:-left-16 z-20 flex flex-col items-center animate-bounce">
+                <p class="text-xs text-purple-300 font-medium transform -rotate-6 bg-gray-900/80 backdrop-blur-sm px-3 py-1.5 rounded-lg border border-purple-500/30 shadow-lg text-center">
+                    This is my dog <br>
+                    <span class="text-white font-bold text-sm">Noot Noot!</span>
+                </p>
+                <svg class="w-6 h-6 text-purple-400 mt-1 transform rotate-45 ml-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"></path></svg>
+            </div>
+
+        </div>
+        
+        <div class="text-center md:text-left max-w-lg">
+            <h1 class="text-4xl md:text-6xl font-bold mb-4">Hello, I'm <span class="text-purple-500">Royston</span></h1>
+            <h2 class="text-xl md:text-2xl text-gray-300 font-medium mb-6">Welcome to my portfolio!</h2>
+            <div class="flex items-center justify-center md:justify-start space-x-4 mt-2">
+                <a href="https://www.linkedin.com/in/roystoncheng/" target="_blank" class="w-12 h-12 rounded-full border border-gray-500 flex items-center justify-center hover:border-purple-500 hover:text-purple-400 hover:shadow-[0_0_15px_rgba(168,85,247,0.4)] text-gray-400 transition duration-300" aria-label="LinkedIn">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                </a>
+                <a href="royston.cheng888@gmail.com" class="w-12 h-12 rounded-full border border-gray-500 flex items-center justify-center hover:border-purple-500 hover:text-purple-400 hover:shadow-[0_0_15px_rgba(168,85,247,0.4)] text-gray-400 transition duration-300" aria-label="Email">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M0 3v18h24v-18h-24zm21.518 2l-9.518 7.713-9.518-7.713h19.036zm-19.518 14v-11.817l10 8.104 10-8.104v11.817h-20z"/></svg>
+                </a>
+            </div>        </div>
+    </main>
+
+    <section id="about" class="w-full max-w-4xl mx-auto px-6 py-12 z-10 relative">
+        <div class="glass-card p-8 md:p-12">
+            <h3 class="text-3xl font-bold text-purple-400 mb-6">About Me</h3>
+            <div class="space-y-4 text-gray-300 leading-relaxed text-sm md:text-base">
+                <p>
+                  Originally from Singapore and currently based in Paris, France, I'm currently pursuing my MSc. in Global 			Supply Chain and Sustainable Management at Kedge Business School, with a strong focus on Planning and Strategic 		Purchasing roles. My dual academic background in Aeronautical Engineering and Supply Chain has shaped my ability 		to approach complex, high-stakes challenges with technical rigor and analytical precision.  
+		</p>
+
+		<p>
+		I am deeply passionate about building resilient systems and turning raw data into actionable strategies. My 			experience 	spans across military operational readiness, project management, and digital workflow automation, 		enabling me to 	understand the critical link between cross-functional alignment and flawless execution.
+		</p>
+
+		<p>
+		Professionally, I've managed high-pressure operations as a Sergeant in the Republic of Singapore Navy, optimized 		high-value procurement operations at Liebherr, and engineered automated data pipelines to drive digital growth.
+		</p>
+
+		<p>
+		I'm always seeking opportunities to apply and grow these skills in roles focused on supply chain strategy and 			operations.
+                </p>
+          
+            </div>
+        </div>
+    </section>
+
+    <section id="education" class="w-full max-w-4xl mx-auto px-6 py-12 z-10 relative">
+    <div class="glass-card p-8 md:p-12">
+        <h3 class="text-3xl font-bold text-purple-400 mb-6">Education</h3>
+        
+        <div class="text-gray-300 space-y-8">
+            <div>
+                <p class="font-bold text-white text-lg">MSc in ISLI Global Supply Chain Management and Sustainable Management (Bac+5)</p>
+                <p class="text-purple-300 text-sm mb-3">Kedge Business School • 2025 - 2027</p>
+                <p class="text-sm text-gray-400 mb-2">Coursework:</p>
+                <div class="flex flex-wrap gap-2">
+                    <span class="px-4 py-1.5 text-xs text-gray-300 bg-white/10 backdrop-blur-md border border-white/20 rounded-full cursor-default transition-transform duration-300 hover:scale-110 hover:bg-purple-500/20 hover:text-white">Data Management</span>
+                    <span class="px-4 py-1.5 text-xs text-gray-300 bg-white/10 backdrop-blur-md border border-white/20 rounded-full cursor-default transition-transform duration-300 hover:scale-110 hover:bg-purple-500/20 hover:text-white">Procurement & SCM</span>
+                    <span class="px-4 py-1.5 text-xs text-gray-300 bg-white/10 backdrop-blur-md border border-white/20 rounded-full cursor-default transition-transform duration-300 hover:scale-110 hover:bg-purple-500/20 hover:text-white">Quan&Qual Research</span>
+                    <span class="px-4 py-1.5 text-xs text-gray-300 bg-white/10 backdrop-blur-md border border-white/20 rounded-full cursor-default transition-transform duration-300 hover:scale-110 hover:bg-purple-500/20 hover:text-white">Strategic Thinking</span>
+                    <span class="px-4 py-1.5 text-xs text-gray-300 bg-white/10 backdrop-blur-md border border-white/20 rounded-full cursor-default transition-transform duration-300 hover:scale-110 hover:bg-purple-500/20 hover:text-white">Financial Performance</span>
+                    <span class="px-4 py-1.5 text-xs text-gray-300 bg-white/10 backdrop-blur-md border border-white/20 rounded-full cursor-default transition-transform duration-300 hover:scale-110 hover:bg-purple-500/20 hover:text-white">Public Speaking</span>
+                    <span class="px-4 py-1.5 text-xs text-gray-300 bg-white/10 backdrop-blur-md border border-white/20 rounded-full cursor-default transition-transform duration-300 hover:scale-110 hover:bg-purple-500/20 hover:text-white">Communication & Sustainable Impact</span>
+                    <span class="px-4 py-1.5 text-xs text-gray-300 bg-white/10 backdrop-blur-md border border-white/20 rounded-full cursor-default transition-transform duration-300 hover:scale-110 hover:bg-purple-500/20 hover:text-white">Team Management</span>
+                    <span class="px-4 py-1.5 text-xs text-gray-300 bg-white/10 backdrop-blur-md border border-white/20 rounded-full cursor-default transition-transform duration-300 hover:scale-110 hover:bg-purple-500/20 hover:text-white">Business & Climate Change</span>
+                    <span class="px-4 py-1.5 text-xs text-gray-300 bg-white/10 backdrop-blur-md border border-white/20 rounded-full cursor-default transition-transform duration-300 hover:scale-110 hover:bg-purple-500/20 hover:text-white">Marketing</span>
+                    <span class="px-4 py-1.5 text-xs text-gray-300 bg-white/10 backdrop-blur-md border border-white/20 rounded-full cursor-default transition-transform duration-300 hover:scale-110 hover:bg-purple-500/20 hover:text-white">Human & AI Collaboration</span>
+                </div>
+            </div>
+
+            <div>
+                <p class="font-bold text-white text-lg">Diploma in Aeronautical Engineering (Bac +3)</p>
+                <p class="text-purple-300 text-sm mb-3">Singapore Polytechnic • 2019 - 2022</p>
+                <p class="text-sm text-gray-400 mb-2">Coursework:</p>
+                <div class="flex flex-wrap gap-2">
+                    <span class="px-4 py-1.5 text-xs text-gray-300 bg-white/10 backdrop-blur-md border border-white/20 rounded-full cursor-default transition-transform duration-300 hover:scale-110 hover:bg-purple-500/20 hover:text-white">Statistics & Analytics for Engineers</span>
+                    <span class="px-4 py-1.5 text-xs text-gray-300 bg-white/10 backdrop-blur-md border border-white/20 rounded-full cursor-default transition-transform duration-300 hover:scale-110 hover:bg-purple-500/20 hover:text-white">3D Modelling</span>
+                    <span class="px-4 py-1.5 text-xs text-gray-300 bg-white/10 backdrop-blur-md border border-white/20 rounded-full cursor-default transition-transform duration-300 hover:scale-110 hover:bg-purple-500/20 hover:text-white">Mechanics</span>
+                    <span class="px-4 py-1.5 text-xs text-gray-300 bg-white/10 backdrop-blur-md border border-white/20 rounded-full cursor-default transition-transform duration-300 hover:scale-110 hover:bg-purple-500/20 hover:text-white">Thermodynamics</span>
+                    <span class="px-4 py-1.5 text-xs text-gray-300 bg-white/10 backdrop-blur-md border border-white/20 rounded-full cursor-default transition-transform duration-300 hover:scale-110 hover:bg-purple-500/20 hover:text-white">Material Science</span>
+                    <span class="px-4 py-1.5 text-xs text-gray-300 bg-white/10 backdrop-blur-md border border-white/20 rounded-full cursor-default transition-transform duration-300 hover:scale-110 hover:bg-purple-500/20 hover:text-white">Air Law</span>
+                    <span class="px-4 py-1.5 text-xs text-gray-300 bg-white/10 backdrop-blur-md border border-white/20 rounded-full cursor-default transition-transform duration-300 hover:scale-110 hover:bg-purple-500/20 hover:text-white">IoT</span>
+                    <span class="px-4 py-1.5 text-xs text-gray-300 bg-white/10 backdrop-blur-md border border-white/20 rounded-full cursor-default transition-transform duration-300 hover:scale-110 hover:bg-purple-500/20 hover:text-white">Composite Repairs</span>
+                    <span class="px-4 py-1.5 text-xs text-gray-300 bg-white/10 backdrop-blur-md border border-white/20 rounded-full cursor-default transition-transform duration-300 hover:scale-110 hover:bg-purple-500/20 hover:text-white">Aircraft Systems</span>
+                    <span class="px-4 py-1.5 text-xs text-gray-300 bg-white/10 backdrop-blur-md border border-white/20 rounded-full cursor-default transition-transform duration-300 hover:scale-110 hover:bg-purple-500/20 hover:text-white">Electrical Engineering</span>
+                    <span class="px-4 py-1.5 text-xs text-gray-300 bg-white/10 backdrop-blur-md border border-white/20 rounded-full cursor-default transition-transform duration-300 hover:scale-110 hover:bg-purple-500/20 hover:text-white">C++ Programming</span>
+                    <span class="px-4 py-1.5 text-xs text-gray-300 bg-white/10 backdrop-blur-md border border-white/20 rounded-full cursor-default transition-transform duration-300 hover:scale-110 hover:bg-purple-500/20 hover:text-white">Engineering Maths</span>
+                    <span class="px-4 py-1.5 text-xs text-gray-300 bg-white/10 backdrop-blur-md border border-white/20 rounded-full cursor-default transition-transform duration-300 hover:scale-110 hover:bg-purple-500/20 hover:text-white">Human Factors</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+    <section id="skills" class="w-full py-16 overflow-hidden z-10 relative">
+        <div class="text-center mb-8">
+            <h3 class="text-2xl font-bold text-white">Technical Skills</h3>
+        </div>
+        <div class="marquee-content py-4">
+                <span class="skill-pill px-6 py-2 rounded-full mx-3 text-sm font-medium whitespace-nowrap">Excel</span>
+                <span class="skill-pill px-6 py-2 rounded-full mx-3 text-sm font-medium whitespace-nowrap">Word</span>
+                <span class="skill-pill px-6 py-2 rounded-full mx-3 text-sm font-medium whitespace-nowrap">Powerpoint</span>
+                <span class="skill-pill px-6 py-2 rounded-full mx-3 text-sm font-medium whitespace-nowrap">PowerBI</span>
+                <span class="skill-pill px-6 py-2 rounded-full mx-3 text-sm font-medium whitespace-nowrap">SQL</span>
+                <span class="skill-pill px-6 py-2 rounded-full mx-3 text-sm font-medium whitespace-nowrap">C++</span>
+                <span class="skill-pill px-6 py-2 rounded-full mx-3 text-sm font-medium whitespace-nowrap">Python</span>
+                <span class="skill-pill px-6 py-2 rounded-full mx-3 text-sm font-medium whitespace-nowrap">Knime</span>
+                <span class="skill-pill px-6 py-2 rounded-full mx-3 text-sm font-medium whitespace-nowrap">Jamovi</span>
+                <span class="skill-pill px-6 py-2 rounded-full mx-3 text-sm font-medium whitespace-nowrap">Canva</span>
+                <span class="skill-pill px-6 py-2 rounded-full mx-3 text-sm font-medium whitespace-nowrap">Photoshop</span>
+                <span class="skill-pill px-6 py-2 rounded-full mx-3 text-sm font-medium whitespace-nowrap">Capcut</span>
+                <span class="skill-pill px-6 py-2 rounded-full mx-3 text-sm font-medium whitespace-nowrap">AutoCAD</span>
+                <span class="skill-pill px-6 py-2 rounded-full mx-3 text-sm font-medium whitespace-nowrap">Solidwork</span>
+                <span class="skill-pill px-6 py-2 rounded-full mx-3 text-sm font-medium whitespace-nowrap">Inventor</span>
+                <span class="skill-pill px-6 py-2 rounded-full mx-3 text-sm font-medium whitespace-nowrap">Make</span>
+                <span class="skill-pill px-6 py-2 rounded-full mx-3 text-sm font-medium whitespace-nowrap">N8N</span>
+                <span class="skill-pill px-6 py-2 rounded-full mx-3 text-sm font-medium whitespace-nowrap">Prompt Engineering</span>
+                
+                <span class="skill-pill px-6 py-2 rounded-full mx-3 text-sm font-medium whitespace-nowrap">Excel</span>
+                <span class="skill-pill px-6 py-2 rounded-full mx-3 text-sm font-medium whitespace-nowrap">Word</span>
+                <span class="skill-pill px-6 py-2 rounded-full mx-3 text-sm font-medium whitespace-nowrap">Powerpoint</span>
+                <span class="skill-pill px-6 py-2 rounded-full mx-3 text-sm font-medium whitespace-nowrap">PowerBI</span>
+                <span class="skill-pill px-6 py-2 rounded-full mx-3 text-sm font-medium whitespace-nowrap">SQL</span>
+                <span class="skill-pill px-6 py-2 rounded-full mx-3 text-sm font-medium whitespace-nowrap">C++</span>
+                <span class="skill-pill px-6 py-2 rounded-full mx-3 text-sm font-medium whitespace-nowrap">Python</span>
+                <span class="skill-pill px-6 py-2 rounded-full mx-3 text-sm font-medium whitespace-nowrap">Knime</span>
+                <span class="skill-pill px-6 py-2 rounded-full mx-3 text-sm font-medium whitespace-nowrap">Jamovi</span>
+                <span class="skill-pill px-6 py-2 rounded-full mx-3 text-sm font-medium whitespace-nowrap">Canva</span>
+                <span class="skill-pill px-6 py-2 rounded-full mx-3 text-sm font-medium whitespace-nowrap">Photoshop</span>
+                <span class="skill-pill px-6 py-2 rounded-full mx-3 text-sm font-medium whitespace-nowrap">Capcut</span>
+                <span class="skill-pill px-6 py-2 rounded-full mx-3 text-sm font-medium whitespace-nowrap">AutoCAD</span>
+                <span class="skill-pill px-6 py-2 rounded-full mx-3 text-sm font-medium whitespace-nowrap">Solidwork</span>
+                <span class="skill-pill px-6 py-2 rounded-full mx-3 text-sm font-medium whitespace-nowrap">Inventor</span>
+                <span class="skill-pill px-6 py-2 rounded-full mx-3 text-sm font-medium whitespace-nowrap">Make</span>
+                <span class="skill-pill px-6 py-2 rounded-full mx-3 text-sm font-medium whitespace-nowrap">N8N</span>
+                <span class="skill-pill px-6 py-2 rounded-full mx-3 text-sm font-medium whitespace-nowrap">Prompt Engineering</span>
+            </div>        </div>
+    </section>
+
+   <section id="experience" class="w-full max-w-5xl mx-auto px-6 py-16 z-10 relative">
+        <h3 class="text-3xl font-bold text-white mb-10 text-center">Experience</h3>
+        
+        <div class="relative w-full flex items-center justify-center">
+
+            <button onclick="prevExperience()" class="absolute -left-6 md:-left-12 z-20 text-gray-500 hover:text-blue-500 transition duration-300" aria-label="Previous Experience">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-8 h-8 md:w-10 md:h-10">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
+                </svg>
+            </button>
+
+           <div class="w-full overflow-hidden relative py-4 px-2">
+
+                <div id="exp-card-0" class="exp-card block animate-[fadeIn_0.4s_ease-in-out]">
+                    <div class="glass-card flex flex-col md:flex-row w-full overflow-hidden group">
+                        
+                        <div class="w-full md:w-1/3 bg-[#0d1017]/80 p-8 flex flex-col items-center justify-center border-b md:border-b-0 md:border-r border-gray-700/50">
+                            
+                                <div class="w-32 h-32 bg-gray-800 rounded-3xl mb-6 flex items-center justify-center shadow-lg border border-gray-700 overflow-hidden">
+    <img src="Navy.jpg" alt="Company 1" class="w-full h-full object-cover p-4bg-white">
+</div>
+                            
+                            <h4 class="text-2xl font-bold text-white mb-2 text-center">Republic of Singapore Navy</h4>
+                            <p class="text-gray-400 text-sm text-center">Sea Soldier Specialist / 3rd Sergeant</p>
+			    <p class="text-purple-400 text-xs text-center mt-2 font-medium tracking-wider uppercase">Sept 2022 - 			    Jul 2024</p>
+                        </div>
+
+                        <div class="w-full md:w-2/3 p-8 md:p-10">
+                            
+                            <div class="flex space-x-4 mb-8">
+                                <button id="tab-btn-resp-0" onclick="switchTab('resp', 0)" class="px-6 py-2.5 rounded-lg bg-purple-900/40 border border-purple-500 text-purple-200 text-sm font-medium transition shadow-[0_0_15px_rgba(168,85,247,0.3)]">
+                                    Responsibilities
+                                </button>
+                                <button id="tab-btn-skills-0" onclick="switchTab('skills', 0)" class="px-6 py-2.5 rounded-lg border border-gray-700 bg-transparent text-gray-400 hover:text-white hover:border-gray-500 text-sm font-medium transition">
+                                    Skills
+                                </button>
+                            </div>
+
+                            <div id="tab-content-resp-0" class="block animate-[fadeIn_0.3s_ease-in-out]">
+                                <ul class="space-y-0">
+                                    <li class="flex items-start border-b border-gray-800/60 py-4">
+                                        <span class="text-purple-500 mr-4 mt-0.5 text-lg">•</span>
+                                        <p class="text-gray-300 text-sm leading-relaxed"> Managed a team of 12 troopers and maintained 100% operational readiness through rigorous training, performance management, and strict adherence to safety protocols</p>
+                                    </li>
+                                    <li class="flex items-start border-b border-gray-800/60 py-4">
+                                        <span class="text-purple-500 mr-4 mt-0.5 text-lg">•</span>
+                                        <p class="text-gray-300 text-sm leading-relaxed">Appointed as the platoon’s Safety Promoter, implemented initiatives leading to a reduction in operational incidents </p>
+                                    </li>
+                                    <li class="flex items-start py-4">
+                                        <span class="text-purple-500 mr-4 mt-0.5 text-lg">•</span>
+                                        <p class="text-gray-300 text-sm leading-relaxed">Ensured cross-functional coordination with stakeholders to streamline communication and secure mission execution</p>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div id="tab-content-skills-0" class="hidden animate-[fadeIn_0.3s_ease-in-out]">
+                                <div class="flex flex-wrap gap-3 mt-4">
+                                    <span class="px-4 py-2 bg-[#1e1531] border border-purple-500/40 rounded-full text-purple-300 text-sm">Team Leadership</span>
+                                    <span class="px-4 py-2 bg-[#1e1531] border border-purple-500/40 rounded-full text-purple-300 text-sm">Performance Management</span>
+                                    <span class="px-4 py-2 bg-[#1e1531] border border-purple-500/40 rounded-full text-purple-300 text-sm">Training & Development</span>
+                                    <span class="px-4 py-2 bg-[#1e1531] border border-purple-500/40 rounded-full text-purple-300 text-sm">Logistical Scheduling</span>
+                                    <span class="px-4 py-2 bg-[#1e1531] border border-purple-500/40 rounded-full text-purple-300 text-sm">Resource Allocation</span>
+                                    <span class="px-4 py-2 bg-[#1e1531] border border-purple-500/40 rounded-full text-purple-300 text-sm">Risk Mitigation</span>
+                                    <span class="px-4 py-2 bg-[#1e1531] border border-purple-500/40 rounded-full text-purple-300 text-sm">Process Optimization</span>
+                                    <span class="px-4 py-2 bg-[#1e1531] border border-purple-500/40 rounded-full text-purple-300 text-sm">Cross-Functional Coordination</span>
+                                    <span class="px-4 py-2 bg-[#1e1531] border border-purple-500/40 rounded-full text-purple-300 text-sm">Data-Driven Compliance</span>
+                                    <span class="px-4 py-2 bg-[#1e1531] border border-purple-500/40 rounded-full text-purple-300 text-sm">Mission Driven</span>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div id="exp-card-1" class="exp-card hidden animate-[fadeIn_0.4s_ease-in-out]">
+                    <div class="glass-card flex flex-col md:flex-row w-full overflow-hidden group">
+                        
+                        <div class="w-full md:w-1/3 bg-[#0d1017]/80 p-8 flex flex-col items-center justify-center border-b md:border-b-0 md:border-r border-gray-700/50">
+                            
+                                <div class="w-32 h-32 bg-gray-800 rounded-3xl mb-6 flex items-center justify-center shadow-lg border border-gray-700 overflow-hidden">
+    <img src="Liebherr.jpg" alt="Company 2" class="w-full h-full object-cover p-4 bg-white">
+</div>                          
+                            <h4 class="text-2xl font-bold text-white mb-2 text-center">Liebherr Singapore</h4>
+                            <p class="text-gray-400 text-sm text-center">Project Management Internship</p>
+			<p class="text-purple-400 text-xs text-center mt-2 font-medium tracking-wider uppercase">Mar 2021 - 				Aug 2021</p>
+                        </div>
+
+                        <div class="w-full md:w-2/3 p-8 md:p-10">
+                            
+                            <div class="flex space-x-4 mb-8">
+                                <button id="tab-btn-resp-1" onclick="switchTab('resp', 1)" class="px-6 py-2.5 rounded-lg bg-purple-900/40 border border-purple-500 text-purple-200 text-sm font-medium transition shadow-[0_0_15px_rgba(168,85,247,0.3)]">
+                                    Responsibilities
+                                </button>
+                                <button id="tab-btn-skills-1" onclick="switchTab('skills', 1)" class="px-6 py-2.5 rounded-lg border border-gray-700 bg-transparent text-gray-400 hover:text-white hover:border-gray-500 text-sm font-medium transition">
+                                    Skills
+                                </button>
+                            </div>
+
+                            <div id="tab-content-resp-1" class="block animate-[fadeIn_0.3s_ease-in-out]">
+                                <ul class="space-y-0">
+                                    <li class="flex items-start border-b border-gray-800/60 py-4">
+                                        <span class="text-purple-500 mr-4 mt-0.5 text-lg">•</span>
+                                        <p class="text-gray-300 text-sm leading-relaxed"> Supported the setup of  the company’s largest project in Singapore, which involved the aero heat exchanger repair workshop, and commissioning of a hydraulic test rig </p>
+                                    </li>
+                                    <li class="flex items-start border-b border-gray-800/60 py-4">
+                                        <span class="text-purple-500 mr-4 mt-0.5 text-lg">•</span>
+                                        <p class="text-gray-300 text-sm leading-relaxed"> Analyzed suppliers’ quotations for high-value equipment, performing value analysis to support cost/value procurement decisions </p>
+                                    </li>
+ <li class="flex items-start py-4">
+                                        <span class="text-purple-500 mr-4 mt-0.5 text-lg">•</span>
+                                        <p class="text-gray-300 text-sm leading-relaxed"> Evaluated vendors through technical site visits, assessing production capabilities with the project’s specification and procurement risks </p>
+                                    </li>
+
+                                </ul>
+                            </div>
+
+                           <div id="tab-content-skills-1" class="hidden animate-[fadeIn_0.3s_ease-in-out]">
+                                <div class="flex flex-wrap gap-3 mt-4">
+                                    <span class="px-4 py-2 bg-[#1e1531] border border-purple-500/40 rounded-full text-purple-300 text-sm">Vendor Evaluation</span>
+                                    <span class="px-4 py-2 bg-[#1e1531] border border-purple-500/40 rounded-full text-purple-300 text-sm">B2B Relationship Building</span>
+                                    <span class="px-4 py-2 bg-[#1e1531] border border-purple-500/40 rounded-full text-purple-300 text-sm">Capacity Assessment</span>
+                                    <span class="px-4 py-2 bg-[#1e1531] border border-purple-500/40 rounded-full text-purple-300 text-sm">Cost/Value Analysis</span>
+                                    <span class="px-4 py-2 bg-[#1e1531] border border-purple-500/40 rounded-full text-purple-300 text-sm">Data Management</span>
+                                    <span class="px-4 py-2 bg-[#1e1531] border border-purple-500/40 rounded-full text-purple-300 text-sm">Project Lifecycle Coordination</span>
+                                    <span class="px-4 py-2 bg-[#1e1531] border border-purple-500/40 rounded-full text-purple-300 text-sm">Procurement Risk Assessment</span>
+                                    <span class="px-4 py-2 bg-[#1e1531] border border-purple-500/40 rounded-full text-purple-300 text-sm">End to End Operational Setup</span>
+                                    <span class="px-4 py-2 bg-[#1e1531] border border-purple-500/40 rounded-full text-purple-300 text-sm">Communication</span>
+                                    <span class="px-4 py-2 bg-[#1e1531] border border-purple-500/40 rounded-full text-purple-300 text-sm">3D Modelling</span>
+                                    <span class="px-4 py-2 bg-[#1e1531] border border-purple-500/40 rounded-full text-purple-300 text-sm">Stakeholder Presentation</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <button onclick="nextExperience()" class="absolute -right-6 md:-right-12 z-20 text-gray-500 hover:text-blue-500 transition duration-300" aria-label="Next Experience">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-8 h-8 md:w-10 md:h-10">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+                </svg>
+            </button>
+            
+        </div>
+
+        <div class="flex justify-center mt-8 space-x-2">
+            <span id="dot-0" class="w-2.5 h-2.5 rounded-full bg-blue-500 transition-colors duration-300"></span>
+            <span id="dot-1" class="w-2.5 h-2.5 rounded-full bg-gray-700 transition-colors duration-300"></span>
+        </div>
+    </section>
+
+    <script>
+        let currentExp = 0;
+        const totalExp = 2; // Matches the number of experience cards (0 and 1)
+
+        // Function to slide between experiences
+        function showExperience(index) {
+            // Hide all cards and reset dots
+            for (let i = 0; i < totalExp; i++) {
+                document.getElementById(`exp-card-${i}`).classList.add('hidden');
+                document.getElementById(`exp-card-${i}`).classList.remove('block');
+                
+                document.getElementById(`dot-${i}`).classList.remove('bg-blue-500');
+                document.getElementById(`dot-${i}`).classList.add('bg-gray-700');
+            }
+
+            // Show active card and highlight dot
+            document.getElementById(`exp-card-${index}`).classList.remove('hidden');
+            document.getElementById(`exp-card-${index}`).classList.add('block');
+            
+            document.getElementById(`dot-${index}`).classList.remove('bg-gray-700');
+            document.getElementById(`dot-${index}`).classList.add('bg-blue-500');
+        }
+
+        function nextExperience() {
+            currentExp = (currentExp + 1) % totalExp;
+            showExperience(currentExp);
+        }
+
+        function prevExperience() {
+            currentExp = (currentExp - 1 + totalExp) % totalExp;
+            showExperience(currentExp);
+        }
+
+        // Function to switch tabs INSIDE the active experience card
+        function switchTab(tab, cardIndex) {
+            const btnResp = document.getElementById(`tab-btn-resp-${cardIndex}`);
+            const btnSkills = document.getElementById(`tab-btn-skills-${cardIndex}`);
+            const contentResp = document.getElementById(`tab-content-resp-${cardIndex}`);
+            const contentSkills = document.getElementById(`tab-content-skills-${cardIndex}`);
+
+            const activeBtnClass = ['bg-purple-900/40', 'border-purple-500', 'text-purple-200', 'shadow-[0_0_15px_rgba(168,85,247,0.3)]'];
+            const inactiveBtnClass = ['border-gray-700', 'bg-transparent', 'text-gray-400'];
+
+            if (tab === 'resp') {
+                contentResp.classList.remove('hidden');
+                contentResp.classList.add('block');
+                contentSkills.classList.remove('block');
+                contentSkills.classList.add('hidden');
+
+                btnResp.classList.remove(...inactiveBtnClass);
+                btnResp.classList.add(...activeBtnClass);
+                btnSkills.classList.remove(...activeBtnClass);
+                btnSkills.classList.add(...inactiveBtnClass);
+            } else {
+                contentSkills.classList.remove('hidden');
+                contentSkills.classList.add('block');
+                contentResp.classList.remove('block');
+                contentResp.classList.add('hidden');
+
+                btnSkills.classList.remove(...inactiveBtnClass);
+                btnSkills.classList.add(...activeBtnClass);
+                btnResp.classList.remove(...activeBtnClass);
+                btnResp.classList.add(...inactiveBtnClass);
+            }
+        }
+    </script>
+
+    <section id="projects" class="w-full max-w-6xl mx-auto px-6 py-16 z-10 relative">
+        <h3 class="text-3xl font-bold text-white mb-2">Projects <span class="text-sm font-normal text-purple-400 ml-2">(click for more info)</span></h3>
+        
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-10">
+            <div class="glass-card flex flex-col h-full cursor-pointer group">
+                <div class="h-48 w-full bg-gray-800 rounded-t-xl overflow-hidden relative border-b border-gray-700 flex items-center justify-center">
+                    <span class="text-gray-600 text-sm">Image Placeholder</span>
+                </div>
+                <div class="p-6 flex flex-col flex-grow">
+                    <h4 class="text-xl font-bold text-white mb-3">Custom Data Pipeline</h4>
+                    <p class="text-gray-400 text-sm flex-grow mb-6">
+                        Engineered a custom data pipeline using Python and Make.com to extract and rank competitor metrics based on engagement KPIs.
+                    </p>
+                    <div class="flex flex-wrap gap-2 mt-auto">
+                        <span class="px-3 py-1 bg-purple-900/50 text-purple-300 text-xs rounded-full border border-purple-500/30">Python</span>
+                        <span class="px-3 py-1 bg-purple-900/50 text-purple-300 text-xs rounded-full border border-purple-500/30">Make.com</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="glass-card flex flex-col h-full cursor-pointer group">
+                <div class="h-48 w-full bg-gray-800 rounded-t-xl overflow-hidden relative border-b border-gray-700 flex items-center justify-center">
+                    <span class="text-gray-600 text-sm">Image Placeholder</span>
+                </div>
+                <div class="p-6 flex flex-col flex-grow">
+                    <h4 class="text-xl font-bold text-white mb-3">Trend Analysis & Strategy</h4>
+                    <p class="text-gray-400 text-sm flex-grow mb-6">
+                        Analyzed complex, unstructured datasets to identify prevailing digital trends and operational gaps, utilizing these insights to structure highly optimized strategies.
+                    </p>
+                    <div class="flex flex-wrap gap-2 mt-auto">
+                        <span class="px-3 py-1 bg-purple-900/50 text-purple-300 text-xs rounded-full border border-purple-500/30">Data Analysis</span>
+                        <span class="px-3 py-1 bg-purple-900/50 text-purple-300 text-xs rounded-full border border-purple-500/30">Strategy</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="glass-card flex flex-col h-full cursor-pointer group">
+                <div class="h-48 w-full bg-gray-800 rounded-t-xl overflow-hidden relative border-b border-gray-700 flex items-center justify-center">
+                    <span class="text-gray-600 text-sm">Image Placeholder</span>
+                </div>
+                <div class="p-6 flex flex-col flex-grow">
+                    <h4 class="text-xl font-bold text-white mb-3">AI-Optimized Growth</h4>
+                    <p class="text-gray-400 text-sm flex-grow mb-6">
+                        Generated 500k+ organic views across trial reels by implementing AI-optimized scripts and hashtags based on performance data analysis.
+                    </p>
+                    <div class="flex flex-wrap gap-2 mt-auto">
+                        <span class="px-3 py-1 bg-purple-900/50 text-purple-300 text-xs rounded-full border border-purple-500/30">AI Tools</span>
+                        <span class="px-3 py-1 bg-purple-900/50 text-purple-300 text-xs rounded-full border border-purple-500/30">Analytics</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="w-full mt-auto py-10 border-t border-gray-800 bg-[#07090e] z-10 relative">
+        <div class="max-w-6xl mx-auto px-6 flex flex-col items-center justify-center">
+            <h4 class="text-white text-xl font-semibold mb-6">Let's Connect</h4>
+            <a href="#" class="mb-8 inline-block bg-transparent border border-purple-500 text-purple-400 hover:bg-purple-500 hover:text-white font-medium py-2 px-6 rounded-full transition duration-300">
+                Download Resume
+            </a>
+            <p class="text-gray-600 text-sm">
+                © 2026 Royston Cheng. All rights reserved.
+            </p>
+        </div>
+    </footer>
+
+</body>
+</html>
