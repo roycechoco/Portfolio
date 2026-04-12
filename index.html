@@ -68,6 +68,44 @@
             border: 1px solid rgba(168, 85, 247, 0.3);
             color: #d8b4fe;
         }
+
+        .cert-item {
+        display: flex !important;
+        flex-direction: column;
+        width: 100%;
+        text-align: left;
+        padding: 1rem 1.25rem;
+        border-radius: 0.75rem;
+        border: 1px solid transparent;
+        border-bottom: 1px solid rgba(168, 85, 247, 0.1);
+        transition: all 0.3s ease;
+        background: rgba(255, 255, 255, 0.02);
+        margin-bottom: 0.5rem;
+    }
+    .cert-item:hover {
+        background: rgba(168, 85, 247, 0.05);
+        border-color: rgba(168, 85, 247, 0.2);
+    }
+    .active-cert {
+        background: rgba(168, 85, 247, 0.1) !important;
+        border-color: rgba(168, 85, 247, 0.4) !important;
+    }
+    .active-cert .cert-title {
+        color: white !important;
+        transform: scale(1.05);
+        padding-left: 0.5rem;
+    }
+    .active-cert .cert-org {
+        color: #a855f7 !important;
+    }
+    .cert-title { transition: all 0.3s ease; transform-origin: left; }
+    
+    /* Sleek Scrollbar */
+    #cert-list::-webkit-scrollbar { width: 4px; }
+    #cert-list::-webkit-scrollbar-track { background: transparent; }
+    #cert-list::-webkit-scrollbar-thumb { background: #4b2aad; border-radius: 10px; }
+
+
     </style>
 </head>
 <body class="antialiased min-h-screen flex flex-col">
@@ -82,11 +120,12 @@
             <a href="#education" class="hover:text-white transition">Education</a>
             <a href="#skills" class="hover:text-white transition">Skills</a>
             <a href="#experience" class="hover:text-white transition">Experience</a>
+            <a href="#certifications" class="hover:text-white transition">Certificate</a>
             <a href="#projects" class="hover:text-white transition">Projects</a>
             
                    </div>
     </nav>
-
+<div id="home-page">
     <main class="flex-grow w-full max-w-6xl mx-auto px-6 pt-12 pb-24 flex flex-col md:flex-row items-center justify-center gap-16 z-10 relative">
         <div class="relative">
             <div class="w-56 h-72 md:w-64 md:h-80 rounded-2xl glow-profile bg-gray-800 flex flex-col items-center justify-center overflow-hidden relative">
@@ -229,7 +268,7 @@
                 <span class="skill-pill px-6 py-2 rounded-full mx-3 text-sm font-medium whitespace-nowrap">Make</span>
                 <span class="skill-pill px-6 py-2 rounded-full mx-3 text-sm font-medium whitespace-nowrap">N8N</span>
                 <span class="skill-pill px-6 py-2 rounded-full mx-3 text-sm font-medium whitespace-nowrap">Prompt Engineering</span>
-            </div>        </div>
+            </div>       
     </section>
 
    <section id="experience" class="w-full max-w-5xl mx-auto px-6 py-16 z-10 relative">
@@ -383,6 +422,163 @@
         </div>
     </section>
 
+    <section id="certifications" class="py-24 px-6 mx-auto w-full max-w-2xl transition-all duration-700 ease-in-out">
+    <h3 class="text-3xl font-bold text-white mb-8 text-center md:text-left tracking-tight">Professional Certifications</h3>
+    
+    <div class="flex flex-col md:flex-row gap-0 md:gap-8 w-full transition-all duration-700">
+        
+        <div id="cert-list-container" class="w-full transition-all duration-700 shrink-0">
+            <div id="cert-list" class="flex flex-col max-h-[600px] overflow-y-auto pr-2">
+                
+                <button onclick="updateCertViewer('c1', this)" class="cert-item">
+                    <span class="cert-title text-lg font-semibold text-gray-300">Galactic Cloud Architecture</span>
+                    <span class="cert-org text-xs text-gray-500 uppercase tracking-widest mt-1">Galactic Federation</span>
+                </button>
+                <button onclick="updateCertViewer('c2', this)" class="cert-item">
+                    <span class="cert-title text-lg font-semibold text-gray-300">Quantum Bug Hunting</span>
+                    <span class="cert-org text-xs text-gray-500 uppercase tracking-widest mt-1">CERN Institute</span>
+                </button>
+                <button onclick="updateCertViewer('c3', this)" class="cert-item">
+                    <span class="cert-title text-lg font-semibold text-gray-300">Time-Space Complexity</span>
+                    <span class="cert-org text-xs text-purple-500/60 uppercase tracking-widest mt-1">In Progress • O'Reilly Temporal</span>
+                </button>
+                <button onclick="updateCertViewer('c4', this)" class="cert-item">
+                    <span class="cert-title text-lg font-semibold text-gray-300">Advanced Telepathic UI</span>
+                    <span class="cert-org text-xs text-gray-500 uppercase tracking-widest mt-1">Neuralink University</span>
+                </button>
+                <button onclick="updateCertViewer('c5', this)" class="cert-item">
+                    <span class="cert-title text-lg font-semibold text-gray-300">Hyper-Loop Engineering</span>
+                    <span class="cert-org text-xs text-purple-500/60 uppercase tracking-widest mt-1">In Progress • The Boring Co.</span>
+                </button>
+                <button onclick="updateCertViewer('c6', this)" class="cert-item">
+                    <span class="cert-title text-lg font-semibold text-gray-300">Interdimensional Data Pipes</span>
+                    <span class="cert-org text-xs text-gray-500 uppercase tracking-widest mt-1">Void Tech</span>
+                </button>
+                <button onclick="updateCertViewer('c7', this)" class="cert-item">
+                    <span class="cert-title text-lg font-semibold text-gray-300">Cybernetic Implant Security</span>
+                    <span class="cert-org text-xs text-gray-500 uppercase tracking-widest mt-1">Tyrell Corp</span>
+                </button>
+                <button onclick="updateCertViewer('c8', this)" class="cert-item">
+                    <span class="cert-title text-lg font-semibold text-gray-300">Post-Apocalyptic Supply Chain</span>
+                    <span class="cert-org text-xs text-gray-500 uppercase tracking-widest mt-1">Wasteland Logistics</span>
+                </button>
+                <button onclick="updateCertViewer('c9', this)" class="cert-item">
+                    <span class="cert-title text-lg font-semibold text-gray-300">Zero-Gravity Project Mgmt</span>
+                    <span class="cert-org text-xs text-purple-500/60 uppercase tracking-widest mt-1">In Progress • Space-PMP</span>
+                </button>
+                <button onclick="updateCertViewer('c10', this)" class="cert-item">
+                    <span class="cert-title text-lg font-semibold text-gray-300">Theoretical JavaScript</span>
+                    <span class="cert-org text-xs text-purple-500/60 uppercase tracking-widest mt-1">In Progress • JS Foundation</span>
+                </button>
+
+            </div>
+        </div>
+
+        <div id="cert-viewer-container" class="w-0 opacity-0 overflow-hidden transition-all duration-700 shrink-0">
+            <div class="w-full h-[600px] bg-[#0a0614] rounded-3xl border border-purple-500/20 flex items-center justify-center p-8 shadow-[0_0_40px_rgba(168,85,247,0.1)]">
+                <div id="cert-viewer-content" class="w-full flex flex-col items-center justify-center text-center transition-opacity duration-300">
+                    </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+
+    <section id="projects" class="w-full max-w-6xl mx-auto px-6 py-16 z-10 relative">
+        <h3 class="text-3xl font-bold text-white mb-2">Projects <span class="text-sm font-normal text-purple-400 ml-2">(click for more info)</span></h3>
+        
+        
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-10">
+            <div class="glass-card flex flex-col h-full cursor-pointer group" onclick="openProject('vggt-slam')">
+                <div class="h-48 w-full bg-gray-800 rounded-t-xl overflow-hidden relative border-b border-gray-700 flex items-center justify-center">
+                    <span class="text-gray-600 text-sm">Image Placeholder</span>
+                </div>
+                <div class="p-6 flex flex-col flex-grow">
+                    <h4 class="text-xl font-bold text-white mb-3">Custom Data Pipeline</h4>
+                    <p class="text-gray-400 text-sm flex-grow mb-6">
+                        Engineered a custom data pipeline using Python and Make.com to extract and rank competitor metrics based on engagement KPIs.
+                    </p>
+                    <div class="flex flex-wrap gap-2 mt-auto">
+                        <span class="px-3 py-1 bg-purple-900/50 text-purple-300 text-xs rounded-full border border-purple-500/30">Python</span>
+                        <span class="px-3 py-1 bg-purple-900/50 text-purple-300 text-xs rounded-full border border-purple-500/30">Make.com</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="glass-card flex flex-col h-full cursor-pointer group" onclick="openProject('data-pipeline')">
+                <div class="h-48 w-full bg-gray-800 rounded-t-xl overflow-hidden relative border-b border-gray-700 flex items-center justify-center">
+                    <span class="text-gray-600 text-sm">Image Placeholder</span>
+                </div>
+                <div class="p-6 flex flex-col flex-grow">
+                    <h4 class="text-xl font-bold text-white mb-3">Trend Analysis & Strategy</h4>
+                    <p class="text-gray-400 text-sm flex-grow mb-6">
+                        Analyzed complex, unstructured datasets to identify prevailing digital trends and operational gaps, utilizing these insights to structure highly optimized strategies.
+                    </p>
+                    <div class="flex flex-wrap gap-2 mt-auto">
+                        <span class="px-3 py-1 bg-purple-900/50 text-purple-300 text-xs rounded-full border border-purple-500/30">Data Analysis</span>
+                        <span class="px-3 py-1 bg-purple-900/50 text-purple-300 text-xs rounded-full border border-purple-500/30">Strategy</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="glass-card flex flex-col h-full cursor-pointer group" onclick="openProject('ai-growth')">
+                <div class="h-48 w-full bg-gray-800 rounded-t-xl overflow-hidden relative border-b border-gray-700 flex items-center justify-center">
+                    <span class="text-gray-600 text-sm">Image Placeholder</span>
+                </div>
+                <div class="p-6 flex flex-col flex-grow">
+                    <h4 class="text-xl font-bold text-white mb-3">AI-Optimized Growth</h4>
+                    <p class="text-gray-400 text-sm flex-grow mb-6">
+                        Generated 500k+ organic views across trial reels by implementing AI-optimized scripts and hashtags based on performance data analysis.
+                    </p>
+                    <div class="flex flex-wrap gap-2 mt-auto">
+                        <span class="px-3 py-1 bg-purple-900/50 text-purple-300 text-xs rounded-full border border-purple-500/30">AI Tools</span>
+                        <span class="px-3 py-1 bg-purple-900/50 text-purple-300 text-xs rounded-full border border-purple-500/30">Analytics</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    </div> 
+        <div id="project-detail-page" style="display: none;" class="min-h-screen w-full bg-[#030014] z-50 relative">
+            <div class="max-w-4xl mx-auto px-6 py-20">
+                
+                <div class="text-center mb-12">
+                    <h1 id="detail-title" class="text-4xl md:text-6xl font-bold text-[#5c5cfc] mb-4 tracking-tight"></h1>
+                    <p id="detail-date" class="text-gray-500 text-lg"></p>
+                </div>
+
+                <div class="mb-12">
+                    <div class="w-full aspect-video bg-gray-900 rounded-2xl border border-gray-800 flex items-center justify-center overflow-hidden shadow-2xl">
+                        <span id="detail-caption" class="text-gray-600 italic text-center px-6"></span>
+                    </div>
+                </div>
+
+                <div id="detail-content" class="text-gray-300 leading-relaxed space-y-6 text-lg mb-20">
+                    </div>
+
+                <div class="flex justify-center border-t border-gray-800 pt-10">
+                    <button onclick="closeProject()" class="px-10 py-4 bg-purple-600 hover:bg-purple-700 text-white rounded-full font-bold transition-all shadow-lg hover:shadow-purple-500/50 flex items-center gap-2">
+                        <span>←</span> Back to Portfolio
+                    </button>
+                </div>
+
+            </div>
+        </div>
+
+    <footer class="w-full mt-auto py-10 border-t border-gray-800 bg-[#07090e] z-10 relative">
+        <div class="max-w-6xl mx-auto px-6 flex flex-col items-center justify-center">
+            <h4 class="text-white text-xl font-semibold mb-6">Let's Connect</h4>
+            <a href="#" class="mb-8 inline-block bg-transparent border border-purple-500 text-purple-400 hover:bg-purple-500 hover:text-white font-medium py-2 px-6 rounded-full transition duration-300">
+                Download Resume
+            </a>
+            <p class="text-gray-600 text-sm">
+                © 2026 Royston Cheng. All rights reserved.
+            </p>
+        </div>
+    </footer>
+
+
     <script>
         let currentExp = 0;
         const totalExp = 2; // Matches the number of experience cards (0 and 1)
@@ -450,71 +646,143 @@
         }
     </script>
 
-    <section id="projects" class="w-full max-w-6xl mx-auto px-6 py-16 z-10 relative">
-        <h3 class="text-3xl font-bold text-white mb-2">Projects <span class="text-sm font-normal text-purple-400 ml-2">(click for more info)</span></h3>
+     <script>
+    function openProject(projectId) {
+        // 1. The Data
+        const projectData = {
+            'vggt-slam': {
+                title: "VGGT Visual SLAM",
+                date: "4/12/2025",
+                content: "The internet hosts an enormous volume of drone footage...",
+                caption: "Figure: A reconstruction of a room of the abandoned coal mine."
+            },
+            'data-pipeline': {
+                title: "Custom Data Pipeline",
+                date: "Ongoing 2026",
+                content: "Description for your second project...",
+                caption: "Visualization of data flow."
+            },
+            'ai-growth': {
+                title: "AI-Optimized Growth",
+                date: "Summer 2025",
+                content: "Description for your third project...",
+                caption: "Growth analytics."
+            }
+        };
+
+        const home = document.getElementById('home-page');
+        const detail = document.getElementById('project-detail-page');
+        const data = projectData[projectId];
+
+        if (home && detail && data) {
+            // STEP A: SWAP THE PAGES FIRST (Reliable)
+            home.style.display = 'none';
+            detail.style.display = 'block';
+            window.scrollTo(0, 0);
+
+            // STEP B: FILL DATA (With safety checks)
+            const titleEl = document.getElementById('detail-title');
+            const dateEl = document.getElementById('detail-date');
+            const contentEl = document.getElementById('detail-content');
+            const captionEl = document.getElementById('detail-caption');
+
+            if (titleEl) titleEl.innerText = data.title;
+            if (dateEl) dateEl.innerText = data.date;
+            if (contentEl) contentEl.innerText = data.content;
+            if (captionEl) captionEl.innerText = data.caption;
+        } else {
+            console.error("Missing home-page, detail-page, or project data!");
+        }
+    }
+
+    function closeProject() {
+        document.getElementById('home-page').style.display = 'block';
+        document.getElementById('project-detail-page').style.display = 'none';
         
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-10">
-            <div class="glass-card flex flex-col h-full cursor-pointer group">
-                <div class="h-48 w-full bg-gray-800 rounded-t-xl overflow-hidden relative border-b border-gray-700 flex items-center justify-center">
-                    <span class="text-gray-600 text-sm">Image Placeholder</span>
-                </div>
-                <div class="p-6 flex flex-col flex-grow">
-                    <h4 class="text-xl font-bold text-white mb-3">Custom Data Pipeline</h4>
-                    <p class="text-gray-400 text-sm flex-grow mb-6">
-                        Engineered a custom data pipeline using Python and Make.com to extract and rank competitor metrics based on engagement KPIs.
-                    </p>
-                    <div class="flex flex-wrap gap-2 mt-auto">
-                        <span class="px-3 py-1 bg-purple-900/50 text-purple-300 text-xs rounded-full border border-purple-500/30">Python</span>
-                        <span class="px-3 py-1 bg-purple-900/50 text-purple-300 text-xs rounded-full border border-purple-500/30">Make.com</span>
+        // Jump back to the projects section
+        const projectsSection = document.getElementById('projects');
+        if (projectsSection) projectsSection.scrollIntoView();
+    }
+</script>
+
+<script>
+    let isCertViewerOpen = false;
+
+    // Fictional Data
+    const certDatabase = {
+        'c1': { status: 'done', title: 'Galactic Cloud Architecture', learned: 'Mastered routing data through wormholes with zero packet loss.' },
+        'c2': { status: 'done', title: 'Quantum Bug Hunting', learned: 'Discovered bugs that existed before the code was even written.' },
+        'c3': { status: 'pending', title: 'Time-Space Complexity', org: "O'Reilly Temporal", expected: 'Year 2099', learned: 'Currently studying how to optimize O(n) down to O(yesterday).' },
+        'c4': { status: 'done', title: 'Advanced Telepathic UI', learned: 'Built user interfaces that click buttons before the user even thinks about it.' },
+        'c5': { status: 'pending', title: 'Hyper-Loop Engineering', org: 'The Boring Co.', expected: 'May 2027', learned: 'Designing magnetic levitation systems for planetary transit.' },
+        'c6': { status: 'done', title: 'Interdimensional Data Pipes', learned: 'Successfully transferred 50 Petabytes of data across the multiverse.' },
+        'c7': { status: 'done', title: 'Cybernetic Implant Security', learned: 'Patched vulnerabilities in optical implants to prevent visual hacking.' },
+        'c8': { status: 'done', title: 'Post-Apocalyptic Supply Chain', learned: 'Optimized delivery routes through radioactive wastelands.' },
+        'c9': { status: 'pending', title: 'Zero-Gravity Project Mgmt', org: 'Space-PMP', expected: 'Dec 2028', learned: 'Managing agile scrums while floating in low earth orbit.' },
+        'c10': { status: 'pending', title: 'Theoretical JavaScript', org: 'JS Foundation', expected: 'TBD', learned: 'Trying to understand what "this" actually refers to in the 5th dimension.' }
+    };
+
+    function updateCertViewer(id, element) {
+        const section = document.getElementById('certifications');
+        const listContainer = document.getElementById('cert-list-container');
+        const viewerContainer = document.getElementById('cert-viewer-container');
+        const content = document.getElementById('cert-viewer-content');
+
+        // 1. THE SLIDE ANIMATION (Runs only on first click)
+        if (!isCertViewerOpen) {
+            // Expand the whole section from centered to wide
+            section.classList.remove('max-w-2xl');
+            section.classList.add('max-w-6xl');
+
+            // Shrink the list to the left
+            listContainer.classList.remove('w-full');
+            listContainer.classList.add('md:w-5/12');
+
+            // Expand the viewer on the right
+            viewerContainer.classList.remove('w-0', 'opacity-0');
+            viewerContainer.classList.add('md:w-7/12', 'opacity-100');
+
+            isCertViewerOpen = true;
+        }
+
+        // 2. HIGHLIGHT ACTIVE BUTTON
+        document.querySelectorAll('.cert-item').forEach(btn => btn.classList.remove('active-cert'));
+        element.classList.add('active-cert');
+
+        // 3. SHOW DATA
+        const data = certDatabase[id];
+        content.style.opacity = '0';
+        
+        setTimeout(() => {
+            if (data.status === 'done') {
+                content.innerHTML = `
+                    <div class="w-24 h-24 bg-purple-500/20 rounded-full flex items-center justify-center mb-6 border border-purple-500/40">
+                        <span class="text-4xl">🏆</span>
                     </div>
-                </div>
-            </div>
-
-            <div class="glass-card flex flex-col h-full cursor-pointer group">
-                <div class="h-48 w-full bg-gray-800 rounded-t-xl overflow-hidden relative border-b border-gray-700 flex items-center justify-center">
-                    <span class="text-gray-600 text-sm">Image Placeholder</span>
-                </div>
-                <div class="p-6 flex flex-col flex-grow">
-                    <h4 class="text-xl font-bold text-white mb-3">Trend Analysis & Strategy</h4>
-                    <p class="text-gray-400 text-sm flex-grow mb-6">
-                        Analyzed complex, unstructured datasets to identify prevailing digital trends and operational gaps, utilizing these insights to structure highly optimized strategies.
-                    </p>
-                    <div class="flex flex-wrap gap-2 mt-auto">
-                        <span class="px-3 py-1 bg-purple-900/50 text-purple-300 text-xs rounded-full border border-purple-500/30">Data Analysis</span>
-                        <span class="px-3 py-1 bg-purple-900/50 text-purple-300 text-xs rounded-full border border-purple-500/30">Strategy</span>
+                    <h4 class="text-3xl text-white font-bold mb-8">${data.title}</h4>
+                    <div class="bg-purple-900/20 border border-purple-500/20 p-6 rounded-2xl w-full text-left">
+                        <h5 class="text-purple-400 text-xs font-bold uppercase tracking-widest mb-3">Key Achievement</h5>
+                        <p class="text-gray-300 leading-relaxed text-sm italic">"${data.learned}"</p>
                     </div>
-                </div>
-            </div>
-
-            <div class="glass-card flex flex-col h-full cursor-pointer group">
-                <div class="h-48 w-full bg-gray-800 rounded-t-xl overflow-hidden relative border-b border-gray-700 flex items-center justify-center">
-                    <span class="text-gray-600 text-sm">Image Placeholder</span>
-                </div>
-                <div class="p-6 flex flex-col flex-grow">
-                    <h4 class="text-xl font-bold text-white mb-3">AI-Optimized Growth</h4>
-                    <p class="text-gray-400 text-sm flex-grow mb-6">
-                        Generated 500k+ organic views across trial reels by implementing AI-optimized scripts and hashtags based on performance data analysis.
-                    </p>
-                    <div class="flex flex-wrap gap-2 mt-auto">
-                        <span class="px-3 py-1 bg-purple-900/50 text-purple-300 text-xs rounded-full border border-purple-500/30">AI Tools</span>
-                        <span class="px-3 py-1 bg-purple-900/50 text-purple-300 text-xs rounded-full border border-purple-500/30">Analytics</span>
+                `;
+            } else {
+                content.innerHTML = `
+                    <div class="w-24 h-24 bg-gray-800 rounded-full flex items-center justify-center mb-6">
+                        <span class="text-4xl opacity-50">⏳</span>
                     </div>
-                </div>
-            </div>
-        </div>
-    </section>
+                    <span class="px-3 py-1 bg-gray-800 text-gray-400 text-[10px] font-bold rounded-full mb-4 uppercase tracking-widest border border-gray-700">In Progress</span>
+                    <h4 class="text-2xl text-white font-bold mb-2">${data.title}</h4>
+                    <p class="text-gray-500 text-sm mb-8">Target: ${data.expected}</p>
+                    <div class="bg-gray-900/50 border border-gray-800 p-6 rounded-2xl w-full text-left">
+                        <p class="text-gray-400 text-sm leading-relaxed">${data.learned}</p>
+                    </div>
+                `;
+            }
+            content.style.opacity = '1';
+        }, 300);
+    }
+</script>
 
-    <footer class="w-full mt-auto py-10 border-t border-gray-800 bg-[#07090e] z-10 relative">
-        <div class="max-w-6xl mx-auto px-6 flex flex-col items-center justify-center">
-            <h4 class="text-white text-xl font-semibold mb-6">Let's Connect</h4>
-            <a href="#" class="mb-8 inline-block bg-transparent border border-purple-500 text-purple-400 hover:bg-purple-500 hover:text-white font-medium py-2 px-6 rounded-full transition duration-300">
-                Download Resume
-            </a>
-            <p class="text-gray-600 text-sm">
-                © 2026 Royston Cheng. All rights reserved.
-            </p>
-        </div>
-    </footer>
-
+ </div>
 </body>
 </html>
